@@ -71,7 +71,7 @@ void cheat_load(void)
 			unzClose(uf);
 			return;
 		}
-		filebuf = new char[finfo.uncompressed_size + 1];
+		filebuf = malloc(sizeof(char)*(finfo.uncompressed_size + 1));
 		filebuf[finfo.uncompressed_size] = 0;
 		unzReadCurrentFile(uf, filebuf, finfo.uncompressed_size);
 		unzCloseCurrentFile(uf);
